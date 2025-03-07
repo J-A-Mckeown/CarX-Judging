@@ -83,18 +83,25 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
-        let votes = { [compA]: 0, [compB]: 0 };
+        let votes = { [compA]: 0, [compB]: 0, "OMT": 0 };
         let voteDetails = [];
         participants.forEach(judge => {
             if (judge !== compA && judge !== compB) {
-                let vote = prompt(`${judge}, vote for ${compA} or ${compB}:`);
-                if (vote === compA || vote === compB) {
-                    votes[vote]++;
-                    voteDetails.push(`${judge} voted for ${vote}`);
+                let vote = prompt(`${judge}, vote: Press 1 for ${compA}, 2 for ${compB}, or 3 for OMT:`);
+                if (vote === "1") {
+                    votes[compA]++;
+                    voteDetails.push(`${judge} voted for ${compA}`);
+                } else if (vote === "2") {
+                    votes[compB]++;
+                    voteDetails.push(`${judge} voted for ${compB}`);
+                } else if (vote === "3") {
+                    votes["OMT"]++;
+                    voteDetails.push(`${judge} voted for OMT`);
                 }
             }
         });
-        let winner = votes[compA] > votes[compB] ? compA : votes[compB] > votes[compA] ? compB : "Tie";
+        let winner = votes[compA] > votes[compB] && votes[compA] > votes["OMT"] ? compA : 
+                     votes[compB] > votes[compA] && votes[compB] > votes["OMT"] ? compB : "OMT";
         battleRecords.push({ compA, compB, winner, voteDetails });
         updateBattleHistory();
         alert(`Winner: ${winner}`);
