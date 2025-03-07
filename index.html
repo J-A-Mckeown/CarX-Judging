@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarX Drift Judging App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        button, select {
+            background: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ff6347;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #3a3a3a;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .battle-entry {
+            background: #444;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .vote-details {
+            display: none;
+            background: #555;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CarX Drift Judging App</h1>
+
+        <h2>Participants</h2>
+        <button id="addParticipant">Add Participant</button>
+        <ul id="participantList"></ul>
+
+        <h2>Qualifying Mode</h2>
+        <p>Click on a participant to qualify them</p>
+        <h3>Leaderboard</h3>
+        <ul id="leaderboard"></ul>
+
+        <h2>Battle Mode</h2>
+        <label for="competitorA">Select Competitor A:</label>
+        <select id="competitorA"></select>
+
+        <label for="competitorB">Select Competitor B:</label>
+        <select id="competitorB"></select>
+
+        <button id="startBattle">Start Battle</button>
+
+        <h2>Battle History</h2>
+        <div id="battleHistory"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
